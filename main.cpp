@@ -1,26 +1,32 @@
 #include <iostream>
 
 using namespace std;
-
+  void prime(int x);
 int main()
-{   int sum, b;
-    sum = 0;  b = 0;
-    for ( int i; i<= 10000; i++)
-      {
-        if(i%2==0)
-        {
-            //so it give us even numbers
-            sum = sum+i;//we sum all even numbers
-            b++;//b tell us number of even numbers
-        }
-      }
-
-      float avg;
-      avg = sum/b;
-      cout <<"average:"<<avg<<endl;
-       // so run that
-
-
-
-
+{
+    int number = 0;
+    cout << "key in a number:" << endl;
+    cin >> number;
+    prime(number);
 }
+  void prime (int x)
+  {   int sum = 0;
+      for (int i = x; i>0; i--)
+      {
+          bool not_prime = false;
+          for(int j =2; j<i; j++)
+          {
+              if (i%j ==0)
+              {
+                  not_prime = true;
+                  j = i;
+              }
+
+              if (not_prime == false)
+              {
+                  sum = sum + i;
+              }
+          }
+      }
+      cout << "the sum is :"; cout << sum;
+  }
